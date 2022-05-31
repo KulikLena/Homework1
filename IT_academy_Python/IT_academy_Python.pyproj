@@ -2,16 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>128fbddf-c7b4-424d-b5df-88388861e502</ProjectGuid>
-    <ProjectHome>
-    </ProjectHome>
+    <ProjectGuid>941e3e71-961c-416e-9ae0-b156838f954a</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
     <StartupFile>Homework1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>It_academy_Python_course</Name>
-    <RootNamespace>Homework1</RootNamespace>
+    <Name>IT_academy_Python</Name>
+    <RootNamespace>IT_academy_Python</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,9 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BMI_calculator.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Homework1.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
