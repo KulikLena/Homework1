@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>941e3e71-961c-416e-9ae0-b156838f954a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>BMICalculatorMatplotlib.py</StartupFile>
+    <StartupFile>BMIMatplotlib.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,9 @@
     <Compile Include="BMICalculatorMatplotlib.py" />
     <Compile Include="Homework1.py" />
     <Compile Include="BMICalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BMIMatplotlib.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

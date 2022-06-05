@@ -9,7 +9,6 @@ refferal_ranges = {
     
 }
 
-
 def survey(refferal_ranges, category_names):
     
     labels = list(refferal_ranges.keys())

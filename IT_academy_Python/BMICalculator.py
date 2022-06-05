@@ -14,7 +14,7 @@ while input_data==False:
 # для инклюзивности
 i=0
 if a>251 or b>635: 
-    i=i+1
+    i+=1
     while i<3: 
           a = int(input("Let's try again.Your height in cm: "))
           b = int(input("Let's try again. Your weight in kg: "))
