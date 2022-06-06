@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
+
 
 #ввод данных
 input_data = False
@@ -88,19 +88,19 @@ def diagnose (a, b,c,d, df):
         elif index_bmi > severe_underweight and index_bmi <= strong_underweight:
             print("Your BMI index is "+str(index_bmi)+
                   " and you are in the strong underweight range and should visit\n a doctor and a psychotherapist. "+
-                  "And by the way do some "+str('male stuff' if d == 'male' else 'female or other stuff.'))
+                  "And by the way do some "+str('male stuff.' if d == 'male' else 'female or other stuff.'))
         elif index_bmi > strong_underweight and index_bmi <= underweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the underweight range. It'kind a normal,\n but take some meds tests. "+
-                  "And by the way do some "+str('male stuff' if d == 'male' else 'female or other stuff.'))
+                  "And by the way do some "+str('male stuff.' if d == 'male' else 'female or other stuff.'))
         elif index_bmi > underweight and index_bmi <= normal:
             print("Your BMI index is "+str(index_bmi)+" and you are in the normal range." +
-                  " Keep in pace your "+str('male stuff' if d == 'male' else 'female or other stuff.') )
+                  " Keep in pace your "+str('male stuff.' if d == 'male' else 'female or other stuff.') )
         elif index_bmi > normal and index_bmi <= overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the overweight range. It'kind a normal,\n but take some meds tests. "+
-                  "And by the way do some "+('male stuff' if d == 'male' else 'female or other stuff.'))
+                  "And by the way do some "+('male stuff.' if d == 'male' else 'female or other stuff.'))
         elif index_bmi > overweight and index_bmi <= strong_overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the strong overweight range and should visit a doctor\n and a pshyhotherapist. "+
-                  "And by the way do some "+('male stuff' if d == 'male' else 'female or other stuff.'))
+                  "And by the way do some "+('male stuff.' if d == 'male' else 'female or other stuff.'))
         elif index_bmi > strong_overweight and index_bmi <= severe_overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the obese range and should call a doctor.")
         else: print ("You are probably dead")

@@ -22,15 +22,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BMICalculatorMatplotlib.py" />
     <Compile Include="Homework1.py" />
-    <Compile Include="BMICalculator.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="HW_2_BMI.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="module1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
