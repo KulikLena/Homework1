@@ -17,6 +17,14 @@ while input_data==False:
 
 ##в зависимости от пола подгружаем разные дата сеты  (один для женщин и прочих полов и один для мужчин.) 
 #Дата сеты примерные, соблюдая общие очертания, найти точные не удалось. 
+# дата сет выглядит так: 
+#    YEAR  severe overweight  strong overweight  overweight   normal   underweight  strong underweight  severe underweight
+#0       0           28.00000           2.000000    2.000000  3.00000   2.000000    1.000000            12.00000  
+#1       1           28.00000           2.000000    2.000000  3.00000   2.000000    1.000000            12.00000  
+# ..    ...                ...                ...         ...      ...   
+#100   100            0.00000          12.000000   10.000000  8.00000   3.000000    1.000000            16.00000  
+    
+#[101 rows x 8 columns]
 
 def draw_plot (df):
     
@@ -77,23 +85,23 @@ def diagnose (a, b,c,d, df):
     if index_bmi in range(left_limit,right_limit): 
         if index_bmi in range(left_limit, severe_underweight):
             print("Your BMI index is "+str(index_bmi)+" and you are in the extreme underweight and should call a doctor")
-        elif index_bmi in range(severe_underweight, strong_underweight):
+        elif index_bmi > severe_underweight and index_bmi <= strong_underweight:
             print("Your BMI index is "+str(index_bmi)+
                   " and you are in the strong underweight range and should visit\n a doctor and a psychotherapist. "+
                   "And by the way do some "+str('male stuff' if d == 'male' else 'female or other stuff.'))
-        elif index_bmi in range(strong_underweight, underweight):
+        elif index_bmi > strong_underweight and index_bmi <= underweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the underweight range. It'kind a normal,\n but take some meds tests. "+
                   "And by the way do some "+str('male stuff' if d == 'male' else 'female or other stuff.'))
-        elif index_bmi in range(underweight, normal):
+        elif index_bmi > underweight and index_bmi <= normal:
             print("Your BMI index is "+str(index_bmi)+" and you are in the normal range." +
                   " Keep in pace your "+str('male stuff' if d == 'male' else 'female or other stuff.') )
-        elif index_bmi in range(normal, overweight):
+        elif index_bmi > normal and index_bmi <= overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the overweight range. It'kind a normal,\n but take some meds tests. "+
                   "And by the way do some "+('male stuff' if d == 'male' else 'female or other stuff.'))
-        elif index_bmi in range(overweight,strong_overweight):
+        elif index_bmi > overweight and index_bmi <= strong_overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the strong overweight range and should visit a doctor\n and a pshyhotherapist. "+
                   "And by the way do some "+('male stuff' if d == 'male' else 'female or other stuff.'))
-        elif index_bmi in range(strong_overweight,severe_overweight):
+        elif index_bmi > strong_overweight and index_bmi <= severe_overweight:
             print("Your BMI index is "+str(index_bmi)+" and you are in the obese range and should call a doctor.")
         else: print ("You are probably dead")
         
@@ -117,7 +125,4 @@ plt.show()
 
 #print( "Your referal values are: ")
 #print(df.iloc[c:c+1, 0:9])
-
-
-
 
