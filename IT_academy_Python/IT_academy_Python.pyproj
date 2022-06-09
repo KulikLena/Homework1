@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>941e3e71-961c-416e-9ae0-b156838f954a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>HW_3.py</StartupFile>
+    <StartupFile>HW_2_BMI.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
