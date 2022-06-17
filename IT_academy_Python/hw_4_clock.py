@@ -1,9 +1,12 @@
 import datetime
 import os
-from tkinter import TRUE
+import time
+from colorama import init, Fore
 
+
+# объ€вл€ем переменные
 square='\u25A0'
-
+counter = 0
 one=[   [0, 0, 1, 0, 0],
         [0, 1, 1, 0, 0],
         [1, 0, 1, 0, 0],
@@ -84,47 +87,73 @@ zero=[   [1, 1, 1, 1, 1],
         [1, 0, 0, 0, 1],
         [1, 1, 1, 1, 1],
        ] 
-colon = [   [0, 0, 0, 0, 0],
+
+colon1 = [   [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+       ]
+colon2 = [   [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
        ]
 
-clock = [   [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-       ]
-dict = {'1':one, '2':two, '3':three, '4':four,
+# определ€ем функцию дл€ мигани€. что-то с генераором не придумалось, поэтому return
+def winging(count):
+    if count%2==0:
+        return colon1
+    else: 
+        return colon2
+
+init()
+
+# заводим цикл
+while True:
+    colon=winging(counter)
+
+# создаем словарь дл€ сопоставлени€ распарсенных символов в строке текущее_врем€ с переменными. “ак как есть мигание, то он в цикле
+    dict = {'1':one, '2':two, '3':three, '4':four,
        '5':five, '6':six, '7':seven, '8': eight, 
        '9': nine, '0': zero, ':': colon}
 
+ # объ€вл€ем пустой список, состо€щий из списков   
+    clock = [   [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+       ]
 
-
-drive=TRUE
-
-while drive: 
+#получаем текущее врем€ и преобразуем в строку
     current_time=datetime.datetime.now()
     current_time_str=current_time.strftime("%H:%M:%S")
 
+    # объедин€ем все символы в новый список, а по сути матрицу 7x45 
     for symbol in current_time_str:
         x = dict[symbol]
         clock = [i + j for i, j in zip(clock, x)]
     
-
+ # печатаем построчно   
     for row in clock:            
         for elem in row:     
             if elem==1:
-               print(square, end = ' ')
+               print(Fore.RED + square, end = ' ')
             else: print(" ", end = ' ')
         print()
-    print("\n")
-    #os.system('cls')
 
- 
+        
+ # очищаем экран, делаем паузу, итерируем счетчик         
+    counter+=1
+    os.system('cls')
+    time.sleep(0.3)
+
+
