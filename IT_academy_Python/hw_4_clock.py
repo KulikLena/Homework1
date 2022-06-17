@@ -7,6 +7,7 @@ from colorama import init, Fore
 # объ€вл€ем переменные
 square='\u25A0'
 counter = 0
+
 one=[   [0, 0, 1, 0, 0],
         [0, 1, 1, 0, 0],
         [1, 0, 1, 0, 0],
@@ -146,7 +147,7 @@ while True:
     for row in clock:            
         for elem in row:     
             if elem==1:
-               print(Fore.RED + square, end = ' ')
+               print(Fore.CYAN+square, end = ' ')
             else: print(" ", end = ' ')
         print()
 
