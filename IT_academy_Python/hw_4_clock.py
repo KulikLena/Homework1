@@ -3,11 +3,9 @@ import os
 import time
 from colorama import init, Fore
 
-
 # объявляем переменные
 square='\u25A0'
 counter = 0
-
 one=[   [0, 0, 1, 0, 0],
         [0, 1, 1, 0, 0],
         [1, 0, 1, 0, 0],
@@ -148,7 +146,6 @@ while True:
                print(Fore.CYAN+square, end = ' ')
             else: print(" ", end = ' ')
         print()
-
         
  # очищаем экран, делаем паузу, итерируем счетчик       
     counter+=1
