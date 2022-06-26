@@ -1,10 +1,8 @@
+import time
 
 class MultiplayerConsoleGame(object):
     
     board=[' ' for i in range(1,10)]
-    #player_x=0
-    #player_o=0
-    #draw=0
 
     def __init__(self,game):
         self.game=game 
@@ -111,17 +109,20 @@ class MultiplayerConsoleGame(object):
                 print ('It is a draw!' )
         return result,res
 
-    def write_stats (self, x,o, draw):
+    def write_stats (self, x,o, draw, avg_duration):
         self.x=x
         self.o=o
         self.draw=draw
+        self.avg_duration=avg_duration
         st = open('some_stats.txt','w')
-        line1=str(f'Player x: {x}\n',)
-        line2=str(f'Player o: {o}\n')
-        line3=str(f'Draw: {draw}\n')
+        line1=str(f'Player x has won {x} times\n',)
+        line2=str(f'Player o has won {o} times\n')
+        line3=str(f'Draw has occureed {draw} times\n')
+        line4=str(f'Average duration of the games is: {avg_duration} sec ')
         st.write(line1)
         st.write(line2)
         st.write(line3)
+        st.write (line4)
         st.seek(0)
         st.close()
         return st
@@ -132,10 +133,13 @@ class MultiplayerConsoleGame(object):
         player_x=0
         player_o=0
         draw=0
+        duration=0
+        number_of_games=0
         result=False
         while countin:
               self.board=[' ' for i in range(1,10)]
               self.show_the_board(self.board)
+              start=time.time()
               while " " in self.board and result==False:
                 if count%2==0:
                     print("It's turn of player 1. Please, choose the epmty cell: ")
@@ -153,7 +157,13 @@ class MultiplayerConsoleGame(object):
                   player_o=player_o+1
               elif self.check_result(self.board)[1]  =='draw':
                   draw=draw+1
-                       
+              number_of_games=number_of_games+1
+              end = time.time()
+              game_duration = end-start
+              print(game_duration)
+              duration = duration + game_duration
+              print(duration)
+              average_duration = duration/number_of_games
               answer_to_continue =input("Do you want to continue the game: Y or N?: ")
               if answer_to_continue=='Y':
                   result=False
@@ -161,19 +171,13 @@ class MultiplayerConsoleGame(object):
                   print(player_x)
                   print(player_o)
                   print(draw)
-                  #self.board=[' ' for i in range(1,10)]
-                  #self.show_the_board(self.board)
               else:
                   countin = False
 
-
-        self.write_stats(player_x,player_o,draw)
+        self.write_stats(player_x,player_o,draw, average_duration)
         return player_x, player_o, draw
 
-
-       #fp = open('textfile.txt', 'w') 
-       #fp.close()
-
+    
     def show_statistic(self,file):
         self.file=open(file, 'r')
         print(self.file.read())
@@ -190,7 +194,6 @@ def main():
         tttoe.show_menu()
         answ=tttoe.get_answer()
         if answ==1:
-            #tttoe.show_the_board(tttoe.board)
             tttoe.play_game()
         elif answ==2:
             tttoe.show_statistic('some_stats.txt')
@@ -199,12 +202,6 @@ def main():
         answer = input("Do you want to continue the session: Y or N? ")
         if answer=='N':
             con=False
-
-
-    #print (f"Player {board[0]} has won" )
-    #tttoe.board=[]
-
-    #tttoe.show_the_board(answer)
 
 
 if __name__ == '__main__':
