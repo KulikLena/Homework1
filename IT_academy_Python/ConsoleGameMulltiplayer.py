@@ -122,6 +122,7 @@ class MultiplayerConsoleGame(object):
         st.write(line1)
         st.write(line2)
         st.write(line3)
+        st.seek(0)
         st.close()
         return st
 
@@ -133,7 +134,9 @@ class MultiplayerConsoleGame(object):
         draw=0
         result=False
         while countin:
-            while " " in self.board and result==False:
+              self.board=[' ' for i in range(1,10)]
+              self.show_the_board(self.board)
+              while " " in self.board and result==False:
                 if count%2==0:
                     print("It's turn of player 1. Please, choose the epmty cell: ")
                     self.get_the_move("x")
@@ -143,25 +146,28 @@ class MultiplayerConsoleGame(object):
                     self.get_the_move("o")
                     result=self.check_result(self.board)[0]
                 self.update_the_board(self.board)
-                count+=1
-            if  self.check_result(self.board)[1] == 'x':
-                player_x=+1
-            elif self.check_result(self.board)[1] == 'o':
-                player_o=+1
-            elif self.check_result(self.board)[1]  =='draw':
-                draw=+1
-        
-            self.write_stats(player_x,player_o,draw)
-           
-            answer_to_continue =input("Do you want to continue the game: Y or N?: ")
-            if answer_to_continue=='Y':
-                result=False
-                countin = True
-                self.board=[' ' for i in range(1,10)]
-                self.show_the_board(self.board)
-            else:
-                countin = False
+                count=count+1
+              if  self.check_result(self.board)[1] == 'x':
+                  player_x=player_x+1
+              elif self.check_result(self.board)[1] == 'o':
+                  player_o=player_o+1
+              elif self.check_result(self.board)[1]  =='draw':
+                  draw=draw+1
+                       
+              answer_to_continue =input("Do you want to continue the game: Y or N?: ")
+              if answer_to_continue=='Y':
+                  result=False
+                  countin = True
+                  print(player_x)
+                  print(player_o)
+                  print(draw)
+                  #self.board=[' ' for i in range(1,10)]
+                  #self.show_the_board(self.board)
+              else:
+                  countin = False
 
+
+        self.write_stats(player_x,player_o,draw)
         return player_x, player_o, draw
 
 
@@ -169,9 +175,9 @@ class MultiplayerConsoleGame(object):
        #fp.close()
 
     def show_statistic(self,file):
-        self.file=file
-        print(file.read())
-        file.close()
+        self.file=open(file, 'r')
+        print(self.file.read())
+        self.file.close()
        
     def close_the_game():
         pass
@@ -184,11 +190,12 @@ def main():
         tttoe.show_menu()
         answ=tttoe.get_answer()
         if answ==1:
-            tttoe.show_the_board(tttoe.board)
+            #tttoe.show_the_board(tttoe.board)
             tttoe.play_game()
         elif answ==2:
             tttoe.show_statistic('some_stats.txt')
 
+        
         answer = input("Do you want to continue the session: Y or N? ")
         if answer=='N':
             con=False
