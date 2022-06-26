@@ -16,7 +16,7 @@ class MultiplayerConsoleGame(object):
         answer = int(input("Enter 1 or 2: "))
         return answer
 
-#ðèñóåì äîñêó, ïðèíèìàåì êîíêðåòíóþ äîñêó ñî çíà÷åíèÿìè
+#Ñ€Ð¸ÑÑƒÐµÐ¼ Ð´Ð¾ÑÐºÑƒ, Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÐ¼ ÐºÐ¾Ð½ÐºÑ€ÐµÑ‚Ð½ÑƒÑŽ Ð´Ð¾ÑÐºÑƒ ÑÐ¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸
     def show_the_board (self, board):
         self.board = board 
         print("   A    B    C")
@@ -29,7 +29,7 @@ class MultiplayerConsoleGame(object):
         print()
         return board 
 
-# ïðèíèìàåì õîä èãðîêà 
+# Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÐ¼ Ñ…Ð¾Ð´ Ð¸Ð³Ñ€Ð¾ÐºÐ° 
     def get_the_move(self, sighn):
         r = True
         while r: 
@@ -63,7 +63,7 @@ class MultiplayerConsoleGame(object):
 
         return self.board
 
-# ïðîâåðÿåì ðåçóëüòàò. Åñòü îùóùåíèå, ÷òî òóò äîëæíî áûòü ïðîùå è èçÿùíåå. Î÷åíü áû õîòåëîñü óçíàòü âàðèàíòû
+# Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚. Ð•ÑÑ‚ÑŒ Ð¾Ñ‰ÑƒÑ‰ÐµÐ½Ð¸Ðµ, Ñ‡Ñ‚Ð¾ Ñ‚ÑƒÑ‚ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ñ€Ð¾Ñ‰Ðµ Ð¸ Ð¸Ð·ÑÑ‰Ð½ÐµÐµ. ÐžÑ‡ÐµÐ½ÑŒ Ð±Ñ‹ Ñ…Ð¾Ñ‚ÐµÐ»Ð¾ÑÑŒ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹
     def check_result(self, board):
         result = False
         res=''
@@ -106,7 +106,7 @@ class MultiplayerConsoleGame(object):
                 print ('It is a draw!' )
         return result,res
 
-# Çàïèñûâàåì ñòàòèñòèêó â ôàéë
+# Ð—Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ Ð² Ñ„Ð°Ð¹Ð»
     def write_stats (self, x,o, draw, avg_duration):
         self.x = x
         self.o = o
@@ -121,12 +121,12 @@ class MultiplayerConsoleGame(object):
         st.write(line2)
         st.write(line3)
         st.write(line4)
-# ïåðåçàïèñûâàåì êàæäûé ðàç íàêîïëåííóþ çà ñåññèþ ñòàòèñòèêó
+# Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ ÐºÐ°Ð¶Ð´Ñ‹Ð¹ Ñ€Ð°Ð· Ð½Ð°ÐºÐ¾Ð¿Ð»ÐµÐ½Ð½ÑƒÑŽ Ð·Ð° Ð¿Ð°Ñ€Ñ‚Ð¸ÑŽ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ
         st.seek(0)
         st.close()
         return st
 
-# èãðàåì èãðó, èçâëåêàåì äàííûå äëÿ ñòàòèòèêè: êîëè÷åñòâî ðåçóëüòàòîâ, ñðåäííå âðåìÿ íà ïàðòèþ (â ñåêóíäàõ)
+# Ð¸Ð³Ñ€Ð°ÐµÐ¼ Ð¸Ð³Ñ€Ñƒ, Ð¸Ð·Ð²Ð»ÐµÐºÐ°ÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð´Ð»Ñ ÑÑ‚Ð°Ñ‚Ð¸Ñ‚Ð¸ÐºÐ¸: ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¾Ð², ÑÑ€ÐµÐ´Ð½Ð½Ðµ Ð²Ñ€ÐµÐ¼Ñ Ð½Ð° Ð¿Ð°Ñ€Ñ‚Ð¸ÑŽ (Ð² ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…)
     def play_game(self):
         count = 0
         countin = True
@@ -172,7 +172,7 @@ class MultiplayerConsoleGame(object):
         self.write_stats(player_x,player_o,draw, average_duration)
         return player_x, player_o, draw, average_duration
 
-# äåêîðàòîð, êîòîðûé ñòðîèò ãðàôèê
+# Ð´ÐµÐºÐ¾Ñ€Ð°Ñ‚Ð¾Ñ€, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ Ð³Ñ€Ð°Ñ„Ð¸Ðº. ÐŸÐ¾ ÑÐ¼Ñ‹ÑÐ»Ñƒ Ð½Ðµ Ð¾Ñ‡ÐµÐ½ÑŒ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð´ÐµÐºÐ¾Ñ€Ð°Ñ‚Ð¾Ñ€ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÐµÐµ Ð¾Ð±Ñ‰Ð¸Ð¼ Ð¸ ÑƒÐ½Ð¸Ð²ÐµÑ€ÑÐ°Ð»ÑŒÐ½Ñ‹Ð¼, Ð½Ð¾ Ð´Ð»Ñ Ñ‚Ñ€ÐµÐ½Ð¸Ñ€Ð¾Ð²ÐºÐ¸ ÑÐ¸Ð½Ñ‚Ð°ÐºÑÐ¸ÑÐ° Ð±Ñ‹Ð» ÑÐ´ÐµÐ»Ð°Ð½
     def drawing_plots(func):
         def wrapper_decorator(*args, **kwargs):
             value = func(*args, **kwargs)
@@ -201,7 +201,7 @@ class MultiplayerConsoleGame(object):
             return value
         return wrapper_decorator
 
-# ïîêàçûâàåì ñòàòèñòèêó
+# Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ
     @drawing_plots   
     def show_statistic(self,file):
         file = open(file, 'r')
@@ -209,7 +209,7 @@ class MultiplayerConsoleGame(object):
         file.close()
         return file.name
 
-# ÷èñòèì äàííûå çà ñååñèþ
+# Ñ‡Ð¸ÑÑ‚Ð¸Ð¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð·Ð° ÑÐµÐµÑÐ¸ÑŽ
     def clear_data (self, file):
          open(file, "w").close()
 
@@ -223,7 +223,7 @@ def main():
         if answ == 1:
             tttoe.play_game()
         elif answ == 2:
-# ïðîâåðÿåì íå ïóñòîé ëè ôàéë
+# Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð½Ðµ Ð¿ÑƒÑÑ‚Ð¾Ð¹ Ð»Ð¸ Ñ„Ð°Ð¹Ð»
             if os.path.getsize('some_stats.txt') > 0:
                 tttoe.show_statistic('some_stats.txt')
             else: 
